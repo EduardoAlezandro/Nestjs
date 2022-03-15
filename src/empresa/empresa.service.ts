@@ -7,24 +7,24 @@ import { EmpresaInterface } from './entities/empresa.interface';
 
 @Injectable()
 export class EmpresaService {
-  
+
   constructor(
     @InjectRepository(EmpresaEntity)
     private readonly empresaRepository: Repository<EmpresaEntity>
-  )  {}
+  ) { }
   create(empresainteface: EmpresaInterface): Observable<EmpresaInterface> {
     return from(this.empresaRepository.save(empresainteface));
   }
 
-  findAll(): Observable<EmpresaInterface[]>{
+  findAll(): Observable<EmpresaInterface[]> {
     return from(this.empresaRepository.find());
   }
 
   findOne(id: number) {
-    return ;
+    return;
   }
 
-  update(id: number, empresainteface: EmpresaInterface): Observable<UpdateResult>{
+  update(id: number, empresainteface: EmpresaInterface): Observable<UpdateResult> {
     return from(this.empresaRepository.update(id, empresainteface));
   }
 
